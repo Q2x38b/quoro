@@ -11,7 +11,7 @@
 
   // Configure your backend URL here. For local dev it falls back to localhost.
   const SERVER_URL = (typeof window !== 'undefined' && window.SERVER_URL)
-    || (location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://REPLACE_WITH_YOUR_BACKEND_URL');
+    || (location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://quoro-production.up.railway.app');
 
   let socket = null;
   let myUsername = null;
@@ -39,9 +39,12 @@
     chat.classList.remove('hidden');
 
     socket = io(SERVER_URL, {
-      transports: ['websocket', 'polling'],
+      // Force XHR polling to avoid proxy issues with WebSockets in some hosts
+      transports: ['polling'],
+      upgrade: false,
       autoConnect: true,
       withCredentials: false,
+      path: '/socket.io'
     });
 
     socket.on('connect', () => {
@@ -87,4 +90,3 @@
     input.value = '';
   });
 })();
-
