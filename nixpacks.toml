@@ -1,0 +1,14 @@
+# Tell Nixpacks to build from the server subdirectory (monorepo layout)
+# Use Node provider explicitly (monorepo root has no package.json)
+providers = ["node"]
+
+# Install server deps from the server/ subdirectory
+[phases.install]
+cmds = [
+  "cd server && npm install --omit=dev"
+]
+
+# Start the app from server/
+[start]
+cmd = "node server/server.js"
+
