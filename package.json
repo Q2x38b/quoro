@@ -1,6 +1,9 @@
 {
   "name": "chat-app-root",
   "private": true,
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server/server.js"
+  }
 }
 
