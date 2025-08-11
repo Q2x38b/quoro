@@ -1,0 +1,6 @@
+# Tell Nixpacks to build from the server subdirectory (monorepo layout)
+project_path = "server"
+
+# Optional: pin the provider for clarity
+providers = ["node"]
+
