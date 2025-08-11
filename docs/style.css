@@ -1,0 +1,103 @@
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Light.woff') format('woff'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-LightItalic.woff') format('woff'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Italic.woff') format('woff'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Medium.woff') format('woff'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-MediumItalic.woff') format('woff'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Bold.woff') format('woff'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-BoldItalic.woff') format('woff'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-Black.woff') format('woff'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('fonts/Satoshi-BlackItalic.woff') format('woff'); font-weight: 900; font-style: italic; font-display: swap; }
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap');
+
+::-moz-selection { background: var(--border-color); }
+::selection { background: var(--border-color); }
+
+:root {
+  --background: #141414;
+  --foreground: #ebebeb;
+  --kbd-background: #222;
+  --text-primary: #d4d4d8;
+  --text-secondary: #737373;
+  --border-color: #404040;
+  --border-subtle: #262626;
+  --hover-bg: rgba(64, 64, 64, 0.2);
+  --font-geist-sans: "geistSans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --font-satoshi: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+[data-theme="light"] {
+  --background: #f5f5f5;
+  --foreground: #171717;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --border-color: #d4d4d4;
+  --border-subtle: #e5e5e5;
+  --kbd-background: #d4d4d4;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; transition: background-color 0.3s ease; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+* { scrollbar-width: thin; scrollbar-color: var(--border-color) var(--hover-bg); }
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container { max-width: 42rem; margin: 0 auto; padding-top: 3.7rem; min-height: 100vh; padding-left: 1rem; padding-right: 1rem; }
+
+
+.card { width: 100%; border: 1px solid var(--border-subtle); border-radius: 14px; background: rgba(64,64,64,0.08); padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+.hero { display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center; }
+.hero h1 { font-size: 1.6rem; letter-spacing: -0.02em; color: var(--text-primary); }
+.subtitle { color: var(--text-secondary); font-size: 0.95rem; max-width: 55ch; }
+.badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; justify-content: center; }
+.badge { border: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.72rem; padding: 4px 8px; border-radius: 999px; background: transparent; }
+.divider { border: none; border-top: 1px solid var(--border-subtle); margin: 16px 0; }
+.feature-list { margin: 0 0 10px 0; color: var(--text-secondary); font-size: 0.9rem; list-style: none; display: grid; gap: 6px; justify-items: center; }
+.feature-list li { margin: 0; }
+.row { display: flex; gap: 10px; }
+.actions { margin-top: 6px; justify-content: center; }
+
+input, button { border-radius: 8px; border: 1px solid var(--border-color); background: transparent; color: var(--foreground); padding: 12px 14px; }
+input { flex: 1; outline: none; }
+button { cursor: pointer; transition: transform .15s ease, background-color .15s ease, border-color .15s ease; }
+button:hover { background: var(--hover-bg); transform: translateY(-1px); }
+button.primary { border-color: var(--text-secondary); background: linear-gradient(180deg, rgba(64,64,64,0.18), rgba(64,64,64,0.06)); }
+button.primary:hover { border-color: var(--text-primary); }
+
+.hidden { display: none; }
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 16px 0; }
+#status { color: var(--text-secondary); font-size: 14px; }
+.dot { margin: 0 6px; opacity: 0.6; }
+
+#messages { list-style: none; margin: 0; padding: 0; height: 50vh; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; background: rgba(64,64,64,0.06); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px; }
+
+.msg { display: flex; gap: 8px; align-items: flex-start; }
+.msg .who { font-weight: 600; color: var(--foreground); font-family: var(--font-satoshi); }
+.msg .text { white-space: pre-wrap; word-break: break-word; color: var(--text-primary); }
+.msg.system { color: var(--text-secondary); }
+.msg.warn { color: #f87171; }
+
+#form { display: flex; gap: 8px; margin-top: 12px; }
+#input { flex: 1; }
+
+@media (max-width: 520px) { #messages { height: 55vh; } }
+
